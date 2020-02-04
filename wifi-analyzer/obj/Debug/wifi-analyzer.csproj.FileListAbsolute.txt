@@ -1,0 +1,9 @@
+C:\Users\Pichler Martin\Desktop\BlueSoft\5AHIT\ZUCC\wifi-analyzer-visual-studio\wifi-analyzer\bin\Debug\wifi-analyzer.exe.config
+C:\Users\Pichler Martin\Desktop\BlueSoft\5AHIT\ZUCC\wifi-analyzer-visual-studio\wifi-analyzer\bin\Debug\wifi-analyzer.exe
+C:\Users\Pichler Martin\Desktop\BlueSoft\5AHIT\ZUCC\wifi-analyzer-visual-studio\wifi-analyzer\bin\Debug\wifi-analyzer.pdb
+C:\Users\Pichler Martin\Desktop\BlueSoft\5AHIT\ZUCC\wifi-analyzer-visual-studio\wifi-analyzer\bin\Debug\ManagedWifi.dll
+C:\Users\Pichler Martin\Desktop\BlueSoft\5AHIT\ZUCC\wifi-analyzer-visual-studio\wifi-analyzer\obj\Debug\wifi-analyzer.csprojAssemblyReference.cache
+C:\Users\Pichler Martin\Desktop\BlueSoft\5AHIT\ZUCC\wifi-analyzer-visual-studio\wifi-analyzer\obj\Debug\wifi-analyzer.csproj.CoreCompileInputs.cache
+C:\Users\Pichler Martin\Desktop\BlueSoft\5AHIT\ZUCC\wifi-analyzer-visual-studio\wifi-analyzer\obj\Debug\wifi-analyzer.csproj.CopyComplete
+C:\Users\Pichler Martin\Desktop\BlueSoft\5AHIT\ZUCC\wifi-analyzer-visual-studio\wifi-analyzer\obj\Debug\wifi-analyzer.exe
+C:\Users\Pichler Martin\Desktop\BlueSoft\5AHIT\ZUCC\wifi-analyzer-visual-studio\wifi-analyzer\obj\Debug\wifi-analyzer.pdb
