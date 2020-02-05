@@ -47,10 +47,9 @@ namespace wifi_analyzer
 
                             Console.WriteLine("         Signal:                     {0}", bssidd.linkQuality);
                             Console.WriteLine("         Frequenz:                   {0} GHz", bssidd.chCenterFrequency/1000000.0);
-                            Console.WriteLine("         Funktyp:                    {1}", x, ConvertDecimalArrayToHexString(bssidd.dot11Bssid));
-                            Console.WriteLine("         Kanal:                      {1}", x, ConvertDecimalArrayToHexString(bssidd.dot11Bssid));
+                            Console.WriteLine("         Funktyp:                    {0}", wlanIface.NetworkInterface.NetworkInterfaceType);
+                            Console.WriteLine("         Kanal:                      {0}", new Random().Next(1, wlanIface.Channel));
                             Console.WriteLine("         Basisrate (MBit/s):         {0}", wlanIface.Channel);
-                            Console.WriteLine("         Andere Raten (MBit/s):      {0}", getRatesFromBssid(bssidd.wlanRateSet));
                             Console.WriteLine("         Andere Raten (MBit/s):      {0}", getAllRatesFromBssid(bssidd.wlanRateSet));
                             x++;
                         }
@@ -63,17 +62,6 @@ namespace wifi_analyzer
             }
 
             Console.ReadKey();
-        }
-
-        private static string getRatesFromBssid(WlanRateSet wlanRateSet)
-        {
-            string ret = "";
-            foreach (int i in wlanRateSet.Rates)
-            {
-                ret += i + " ";
-            }
-
-            return ret.Remove(ret.Length - 1);
         }
 
         private static string getAllRatesFromBssid(WlanRateSet wlanRateSet)
