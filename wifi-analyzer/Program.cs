@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using static NativeWifi.Wlan;
+using System.Collections.Generic.Dictionary;
 
 namespace wifi_analyzer
 {
@@ -12,12 +13,19 @@ namespace wifi_analyzer
         static void Main(string[] args)
         {
             WlanClient client = new WlanClient();
+            Dictionary<int, int> GHz24 = new Dictionary<int, int>();
+            int[] GHz24Channel = {1,2,3,4,5,6,7,8,9,10,11,12,13,14};
+            int[] GHz24Frequency = {2412,2417,2422,2427,2432,2437,2442,2447,2452,2457,2462,2467,2472,2477,2482};
 
             /**
              * netsh wlan  show network  mode=bssid
              * https://archive.codeplex.com/?p=managedwifi
              * https://stackoverflow.com/questions/496568/how-do-i-get-the-available-wifi-aps-and-their-signal-strength-in-net
              * https://www.codeproject.com/Questions/1027840/How-to-get-list-of-Wifi-Networks-and-connect-to-on
+             * 
+             * https://docs.microsoft.com/en-us/windows/win32/nativewifi/portal
+             * https://en.wikipedia.org/wiki/List_of_WLAN_channels
+             * ToDo: Continue with implementation of ferquency tables and read documentation concerning the NativeWifi library
              * */
 
             foreach (WlanClient.WlanInterface wlanIface in client.Interfaces)
