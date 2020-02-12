@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using static NativeWifi.Wlan;
-using System.Collections.Generic.Dictionary;
+using System.Collections.Generic;
 
 namespace wifi_analyzer
 {
@@ -16,6 +16,13 @@ namespace wifi_analyzer
             Dictionary<int, int> GHz24 = new Dictionary<int, int>();
             int[] GHz24Channel = {1,2,3,4,5,6,7,8,9,10,11,12,13,14};
             int[] GHz24Frequency = {2412,2417,2422,2427,2432,2437,2442,2447,2452,2457,2462,2467,2472,2477,2482};
+            int i = 0;
+
+            GHz24Channel.ToList().ForEach(delegate (int channel)
+            {
+                GHz24.Add(GHz24Frequency[i], channel);
+                i++;
+            });
 
             /**
              * netsh wlan  show network  mode=bssid
@@ -25,7 +32,7 @@ namespace wifi_analyzer
              * 
              * https://docs.microsoft.com/en-us/windows/win32/nativewifi/portal
              * https://en.wikipedia.org/wiki/List_of_WLAN_channels
-             * ToDo: Continue with implementation of ferquency tables and read documentation concerning the NativeWifi library
+             * ToDo: Read documentation concerning the NativeWifi library
              * */
 
             foreach (WlanClient.WlanInterface wlanIface in client.Interfaces)
@@ -33,7 +40,7 @@ namespace wifi_analyzer
                 Wlan.WlanAvailableNetwork[] networks = wlanIface.GetAvailableNetworkList(0);
                 Wlan.WlanBssEntry[] bssidds = wlanIface.GetNetworkBssList();
 
-                int i = 1;
+                i = 1;
                 
                 foreach(WlanAvailableNetwork network in networks)
                 {
@@ -56,7 +63,7 @@ namespace wifi_analyzer
                             Console.WriteLine("         Signal:                     {0}", bssidd.linkQuality);
                             Console.WriteLine("         Frequenz:                   {0} GHz", bssidd.chCenterFrequency/1000000.0);
                             Console.WriteLine("         Funktyp:                    {0}", wlanIface.NetworkInterface.NetworkInterfaceType);
-                            Console.WriteLine("         Kanal:                      {0}", new Random().Next(1, wlanIface.Channel));
+                            Console.WriteLine("         Kanal:                      {0}", GHz24[(int)bssidd.chCenterFrequency / 1000]);
                             Console.WriteLine("         Basisrate (MBit/s):         {0}", wlanIface.Channel);
                             Console.WriteLine("         Andere Raten (MBit/s):      {0}", getAllRatesFromBssid(bssidd.wlanRateSet));
                             x++;
